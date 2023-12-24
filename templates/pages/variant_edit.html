@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Variantni o'zgartirish
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul>
+                    {% for exercise in exercise_list %}
+                        <li>{{ exercise }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

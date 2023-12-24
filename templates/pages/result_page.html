@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Natija
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h3>{% blocktrans %}Natijangiz{% endblocktrans %}: {{ ball }} / {{ count }}</h3>
+
+        <ol class="list-group mt-4">
+            {% for result in object_list %}
+                <li class="list-group-item d-flex flex-column">
+                    <h6>{{ forloop.counter }}. {{ result.exercise.text }}</h6>
+                    <div>
+                        A) {{ result.exercise.answer_a }}
+                        <span style="color: {% if result.user_answer == 'answer_a' %}
+                            {% if result.exercise.answer == 'answer_a' %} #50ce38 {% else %} red {% endif %}
+                        {% endif %}">
+                            {% if result.user_answer == 'answer_a' %}
+                                {% if result.exercise.answer == 'answer_a' %} ✓ {% else %} ✕ {% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div>
+                        B) {{ result.exercise.answer_b }}
+                        <span style="color: {% if result.user_answer == 'answer_b' %}
+                            {% if result.exercise.answer == 'answer_b' %} #50ce38 {% else %} red {% endif %}
+                        {% endif %}">
+                            {% if result.user_answer == 'answer_b' %}
+                                {% if result.exercise.answer == 'answer_b' %} ✓ {% else %} ✕ {% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div>
+                        C) {{ result.exercise.answer_c }}
+                        <span style="color: {% if result.user_answer == 'answer_c' %}
+                            {% if result.exercise.answer == 'answer_c' %} #50ce38 {% else %} red {% endif %}
+                        {% endif %}">
+                            {% if result.user_answer == 'answer_c' %}
+                                {% if result.exercise.answer == 'answer_c' %} ✓ {% else %} ✕ {% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div>
+                        D) {{ result.exercise.answer_d }}
+                        <span style="color: {% if result.user_answer == 'answer_d' %}
+                            {% if result.exercise.answer == 'answer_d' %} #50ce38 {% else %} red {% endif %}
+                            {% endif %}">
+                            {% if result.user_answer == 'answer_d' %}
+                                {% if result.exercise.answer == 'answer_d' %} ✓ {% else %} ✕ {% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% endblock %}

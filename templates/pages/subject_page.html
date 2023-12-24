@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Fanlar
+{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-4">
+        <h4>{% blocktrans %}Fanni tanlang:{% endblocktrans %}</h4>
+        <div class="list-group">
+            {% for subject in subject_list %}
+                <a href="{% url 'test:subject' subject.id %}"
+                   class="list-group-item list-group-item-action">{{ subject.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% load i18n static %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">HSH</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+                        {% blocktrans %} Bosh sahifa {% endblocktrans %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'test:subject_list' %}">
+                        {% blocktrans %} Fanlar {% endblocktrans %}
+                    </a>
+                </li>
+            </ul>
+
+            <div class="d-flex gap-2 d-md-flex justify-content-md-end ms-2">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle fs-4"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% if request.user.is_authenticated %}
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                       href="{% url 'account:profile_detail' request.user.pk %}">
+                                        <i class="bi bi-person-fill-gear me-3"></i>
+                                        <span>
+                                            {% blocktrans %} Profil {% endblocktrans %}
+                                        </span>
+                                    </a>
+                                </li>
+                                <hr class="dropdown-divider">
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                       href="{% url 'account:logout' %}">
+                                        <i class="bi bi-box-arrow-left me-3"></i>
+                                        <span>
+                                            {% blocktrans %} Chiqish {% endblocktrans %}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{% url "account:login" %}">
+                                        <i class="bi bi-box-arrow-in-right me-3"></i>
+                                        <span>
+                                            {% blocktrans %} Kirish {% endblocktrans %}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                       href="{% url "account:register" %}">
+                                        <i class="bi bi-person-plus-fill me-3"></i>
+                                        <span>
+                                            {% blocktrans %} Ro'yxatdan o'tish {% endblocktrans %}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            {#                <img width="30px" height="30px" src="{% static 'images/flag-uz.png' %}" alt="">#}
+            {% get_current_language as LANGUAGE_CODE %}
+            <img width="30px" height="30px" src="{% static '' %}images/flag-{{ LANGUAGE_CODE }}.png" alt="">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select class="form-select ms-2" name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                selected{% endif %}>
+                            {{ language.name_local|slice:3|upper }}
+                        </option>
+
+                    {% endfor %}
+                </select>
+
+            </form>
+        </div>
+    </div>
+</nav>

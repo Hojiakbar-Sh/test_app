@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Delete Profile
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+                    <h4 class="mb-4">
+                        {% blocktrans %}{{ object }} - akkountingizni rostdan o'chirmoqchimisiz?{% endblocktrans %}
+                    </h4>
+                    {{ form }}
+                    <input type="submit" value="{% blocktranslate %}Tasdiqlash{% endblocktranslate %}">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

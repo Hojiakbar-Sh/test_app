@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Variant: {{ variant.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+
+        <h4>{{ variant.subject }} <i class="bi bi-chevron-right"></i> {{ variant.title }}</h4>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <ol class="list-group">
+                {% for exercise in exercise_list %}
+                    <li class="list-group-item d-flex flex-column">
+                        <h6>{{ forloop.counter }}. {{ exercise.text }}</h6>
+
+                        <div class="form-check">
+                            <input type="radio" name="{{ exercise.id }}" id="{{ exercise.id }}_answer_a"
+                                   value="answer_a" class="form-check-input"
+                                   data-exercise="{{ exercise.id }}">
+                            <label class="form-check-label"
+                                   for="{{ exercise.id }}_answer_a">A) {{ exercise.answer_a }}</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="{{ exercise.id }}" id="{{ exercise.id }}_answer_b"
+                                   value="answer_b" class="form-check-input"
+                                   data-exercise="{{ exercise.id }}">
+                            <label class="form-check-label"
+                                   for="{{ exercise.id }}_answer_b">B) {{ exercise.answer_b }}</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="{{ exercise.id }}" id="{{ exercise.id }}_answer_c"
+                                   value="answer_c" class="form-check-input"
+                                   data-exercise="{{ exercise.id }}">
+                            <label class="form-check-label"
+                                   for="{{ exercise.id }}_answer_c">C) {{ exercise.answer_c }}</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="{{ exercise.id }}" id="{{ exercise.id }}_answer_d"
+                                   value="answer_d" class="form-check-input"
+                                   data-exercise="{{ exercise.id }}">
+                            <label class="form-check-label"
+                                   for="{{ exercise.id }}_answer_d">D) {{ exercise.answer_d }}</label>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ol>
+            <button type="submit" class="btn btn-primary mt-3">
+                {% blocktrans %}Tekshirish{% endblocktrans %}
+            </button>
+        </form>
+
+
+    </div>
+{% endblock %}

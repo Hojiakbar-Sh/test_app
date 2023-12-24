@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <div class="row">
+
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ user.avatar.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {% blocktrans %}Foydalanuvchi ma'lumotlari{% endblocktrans %}
+                        </h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% if user.username != '' %}
+                            <li class="list-group-item">
+                                <b>{% blocktrans %}Foydalanuvchi nomi:{% endblocktrans %}</b>
+                                <i>{{ user.username }}</i>
+                            </li>
+                        {% endif %}
+                        {% if user.email != '' %}
+                            <li class="list-group-item">
+                                <b>Email:</b>
+                                <i>{{ user.email }}</i>
+                            </li>
+                        {% endif %}
+                        {% if user.last_name != '' %}
+                            <li class="list-group-item">
+                                <b>{% blocktrans %}Ism:{% endblocktrans %}</b>
+                                <i>{{ user.first_name }}</i>
+                            </li>
+                        {% endif %}
+                        {% if user.last_name != '' %}
+                            <li class="list-group-item">
+                                <b>{% blocktrans %}Familiya:{% endblocktrans %}</b>
+                                <i>{{ user.last_name }}</i>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <div class="card-body">
+                        <a href="{% url 'account:profile_edit' request.user.pk %}" class="card-link">
+                            {% blocktrans %}O'zgartirish{% endblocktrans %}
+                        </a>
+                        <a href="{% url 'account:profile_delete' request.user.pk %}" class="card-link">
+                            {% blocktrans %}O'chirish{% endblocktrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <h4 class="mb-4">{% blocktrans %}Testlar natijalari:{% endblocktrans %}</h4>
+                {% if result_list %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col">{% blocktrans %}Variant{% endblocktrans %}</th>
+                            <th scope="col">{% blocktrans %}Ko'rsatkich{% endblocktrans %}</th>
+                            <th scope="col">{% blocktrans %}To'g'ri javoblar{% endblocktrans %}</th>
+                            <th scope="col">{% blocktrans %}Noto'g'ri javoblar{% endblocktrans %}</th>
+                            <th scope="col">{% blocktrans %}Ishlangan vaqti{% endblocktrans %}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        {% for result in result_list %}
+
+                            <tr class="{% if result.signpost > 90 %}
+                                    table-success
+                                    {% elif result.signpost < 60 %}
+                                    table-danger
+                            {% endif %} ">
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>
+                                    <a href="{% url 'test:result' result.result.id %}"
+                                       class="d-flex w-100 justify-content-between">
+                                        {{ result.result }}
+                                    </a>
+                                </td>
+                                <td>{{ result.signpost }}%</td>
+                                <td>{{ result.count_correct }}</td>
+                                <td>{{ result.count_incorrect }}</td>
+                                <td>{{ result.result.date_completed|date:"d/m/Y H:i:s" }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h3>{% blocktrans %}Sizda ishlangan variantlar mavjud emas!{% endblocktrans %}</h3>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

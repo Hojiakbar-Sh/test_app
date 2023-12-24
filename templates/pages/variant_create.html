@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static widget_tweaks %}
+
+{% block title %}
+    Variant yaratish
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container py-5">
+        <h1>Variant yaratish:</h1>
+{#        <form method="get">#}
+{#            <select name="lang" id="lang" hx-get="/">#}
+{#                <option value="uz">uz</option>#}
+{#                <option value="ru">ru</option>#}
+{#                <option value="en">en</option>#}
+{#            </select>#}
+{#        </form>#}
+        <form method="post">
+            {% csrf_token %}
+
+            {% for field in variant_form %}
+                <div class="fieldWrapper mt-3">
+                    {{ field|add_label_class:"form-label" }}
+                    {{ field|add_class:"form-control" }}
+                </div>
+            {% endfor %}
+
+            <hr>
+
+            <div class="row">
+                {% for form in formset %}
+                    <div class="col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+                        {% for field in form %}
+                            {% if field.name not in "id, variant" %}
+                                {{ field|add_label_class:"form-label mt-3" }}
+                                {{ field|add_class:"form-control"|attr:"rows:3" }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="btn btn-outline-success mt-4">Saqlash</button>
+        </form>
+    </div>
+{% endblock %}

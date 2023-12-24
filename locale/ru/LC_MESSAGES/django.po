@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-13 20:56+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\config\settings.py:110
+msgid "O'zbekcha"
+msgstr ""
+
+#: .\config\settings.py:111
+msgid "Русский"
+msgstr ""
+
+#: .\config\settings.py:112
+msgid "English"
+msgstr ""
+
+#: .\templates\components\navbar.html:13
+msgid " Bosh sahifa "
+msgstr " Главная "
+
+#: .\templates\components\navbar.html:18
+msgid " Fanlar "
+msgstr " Предметы "
+
+#: .\templates\components\navbar.html:36
+msgid " Profil "
+msgstr " Профиль "
+
+#: .\templates\components\navbar.html:46
+msgid " Chiqish "
+msgstr " Выход "
+
+#: .\templates\components\navbar.html:55
+msgid " Kirish "
+msgstr " Вход "
+
+#: .\templates\components\navbar.html:64
+msgid " Ro'yxatdan o'tish "
+msgstr " Зарегистрироваться "
+
+#: .\templates\pages\delete_profile_page.html:15
+#, python-format
+msgid "%(object)s - akkountingizni rostdan o'chirmoqchimisiz?"
+msgstr "%(object)s - вы уверены, что хотите удалить свою учетную запись?"
+
+#: .\templates\pages\delete_profile_page.html:18
+msgid "Tasdiqlash"
+msgstr "Подтвердить"
+
+#: .\templates\pages\edit_profile_page.html:13
+msgid "Profil ma'lumotlarini o'zgartirish"
+msgstr "Изменить информацию профиля"
+
+#: .\templates\pages\edit_profile_page.html:18
+msgid "Saqlash"
+msgstr "Сохранить"
+
+#: .\templates\pages\exercise_page.html:51
+msgid "Tekshirish"
+msgstr "Проверять"
+
+#: .\templates\pages\login_page.html:14
+msgid "Kirish"
+msgstr "Вход"
+
+#: .\templates\pages\profile_page.html:18
+msgid "Foydalanuvchi ma'lumotlari"
+msgstr "Информация о пользователе"
+
+#: .\templates\pages\profile_page.html:24
+msgid "Foydalanuvchi nomi:"
+msgstr "Имя пользователя:"
+
+#: .\templates\pages\profile_page.html:36
+msgid "Ism:"
+msgstr "Имя:"
+
+#: .\templates\pages\profile_page.html:42
+msgid "Familiya:"
+msgstr "Фамилия:"
+
+#: .\templates\pages\profile_page.html:49
+msgid "O'zgartirish"
+msgstr "Изменить"
+
+#: .\templates\pages\profile_page.html:52
+msgid "O'chirish"
+msgstr "Удалить"
+
+#: .\templates\pages\profile_page.html:59
+msgid "Testlar natijalari:"
+msgstr "Результаты теста:"
+
+#: .\templates\pages\profile_page.html:66
+msgid "Variant"
+msgstr "Вариант"
+
+#: .\templates\pages\profile_page.html:67
+msgid "Ko'rsatkich"
+msgstr "Показатель"
+
+#: .\templates\pages\profile_page.html:68
+msgid "To'g'ri javoblar"
+msgstr "Правильные ответы"
+
+#: .\templates\pages\profile_page.html:69
+msgid "Noto'g'ri javoblar"
+msgstr "Неправильные ответы"
+
+#: .\templates\pages\profile_page.html:70
+msgid "Ishlangan vaqti"
+msgstr "Время завершения"
+
+#: .\templates\pages\profile_page.html:97
+msgid "Sizda ishlangan variantlar mavjud emas!"
+msgstr "У вас нет обработанных вариантов!"
+
+#: .\templates\pages\register_page.html:14
+msgid "Yuborish"
+msgstr "Отправить"
+
+#: .\templates\pages\result_page.html:10
+msgid "Natijangiz"
+msgstr "Ваш результат"
+
+#: .\templates\pages\subject_page.html:11
+msgid "Fanni tanlang:"
+msgstr "Выберите предмет:"
+
+#: .\templates\pages\variant_page.html:12
+msgid "Variantni tanlang:"
+msgstr "Выберите вариант:"
+
+#: .\user\forms.py:9
+msgid "Bunday username ega foydalanuvchi allaqachon mavjud."
+msgstr "Пользователь с таким именем пользователя уже существует."
+
+#: .\user\forms.py:22 .\user\forms.py:53
+msgid "Foydalanuvchi nomi..."
+msgstr "Имя пользователя..."
+
+#: .\user\forms.py:26 .\user\forms.py:57
+msgid "Parol..."
+msgstr "Пароль..."
+
+#: .\user\forms.py:31
+msgid "Parolni tasdiqlang..."
+msgstr "Подтвердите пароль..."
+
+#: .\user\forms.py:38
+msgid "150 yoki undan kam belgi. Faqat harflar, raqamlar va @/./+/-/_"
+msgstr "150 символов или меньше. Только буквы, цифры и @/./+/-/_"
+
+#: .\user\forms.py:44
+msgid "Login yoki parol xato. Iltimos qaytadan urinib ko'ring!"
+msgstr "Неверный логин или пароль. Пожалуйста, попробуйте еще раз!"
+
+#: .\variant\models.py:52
+msgid "Bajarilgan vaqt"
+msgstr "Время завершения"

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Variant
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container mt-4">
+
+        {% if request.user.is_staff %}
+            <a href="{% url 'test:variant_create' %}?subject={{ subject.id|urlencode }}">Variant yaratish</a>
+        {% endif %}
+
+        <h4 class="mt-4">{% blocktrans %}Variantni tanlang:{% endblocktrans %}</h4>
+        <div class="list-group">
+            {% for variant in variant_list %}
+                <a href="{% url 'test:variant' variant.id %}"
+                   class="list-group-item list-group-item-action">{{ variant.title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
