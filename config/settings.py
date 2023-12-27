@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     'modeltranslation',
     'django.contrib.admin',
     'widget_tweaks',
-    'whitenoise.runserver_nostatic',
 
     # my apps
     'user',
@@ -32,7 +31,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     "django.middleware.locale.LocaleMiddleware",
@@ -142,7 +140,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = BASE_DIR / 'media-files'
 
