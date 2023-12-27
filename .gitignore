@@ -1,4 +1,5 @@
 .idea
+staticfiles_build
 Pipfile
 Pipfile.lock
 db.sqlite3
