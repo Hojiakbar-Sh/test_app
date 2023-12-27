@@ -138,7 +138,7 @@ STATIC_URL = 'static/'
 # STATIC_ROOT = BASE_DIR / 'staticfiles' / 'static'  # DEBUG=False holat uchun
 
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = BASE_DIR / "staticfiles" / "static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
